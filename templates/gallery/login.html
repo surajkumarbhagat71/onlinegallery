@@ -1,0 +1,32 @@
+{% extends 'gallery/base.html' %}
+
+
+{% block content %}
+
+ <div class="container-fluid p-0">
+        <div class="row no-gutters p-0 m-0">
+            <div class="col-lg-5 mt-5 mx-auto">
+                <div class="card">
+                    <h5 class="display-5 text-center text-success mt-2"><b><i>User Login</i></b></h5>
+                    <div class="card-body">
+                        <form action="{% url 'login' %}" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label>UserName</label>
+                                <input type="text" name="username" placeholder="Username" required class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" name="password" placeholder="Password" required class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-success btn-block">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

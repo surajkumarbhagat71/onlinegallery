@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#C4E538;">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand ml-5 text-success" href="{% url 'home' %}" ><b>GALLERY</b></a>
+
+      <ul class="navbar-nav ml-auto mr-5">
+        <li class="nav-item">
+          <a class="nav-link active mr-2" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+
+       {% if 'login' in request.session  %}
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+
+       {% else %}
+
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'signup' %}">Singup</a>
+           </li>
+          <li class="nav-item">
+             <a class="nav-link" href="{% url 'login' %}">Login</a>
+          </li>
+
+       {% endif %}
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+{% block content %}{% endblock %}
+
+</body>
+</html>

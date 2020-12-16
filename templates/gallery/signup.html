@@ -1,0 +1,24 @@
+{% extends 'gallery/base.html' %}
+
+
+{% block content %}
+    {% load crispy_forms_tags %}
+ <div class="container-fluid mt-4 p-0">
+        <div class="row no-gutters p-0 m-0">
+            <div class="col-lg-6 mx-auto">
+                <div class="card">
+                    <h5 class="display-5 text-center mt-4 text-success"><b><i>User Signup</i></b></h5>
+                    <div class="card-body">
+                        <form action="{% url 'signup' %}" method="post">
+                           <table class="table">
+                               {% csrf_token %}
+                               {{ forms|crispy }}
+                           </table>
+                            <input type="submit" class="btn btn-success btn-block">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
